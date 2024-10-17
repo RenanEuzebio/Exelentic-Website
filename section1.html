@@ -2,37 +2,44 @@
 <div class="section section1">
     <!-- Exclusive CSS for Section 1 -->
     <style>
-        /* Ensure the styles are scoped to section1 to avoid affecting other sections */
+        /* Scoped styles for section1 */
         .section1 .container {
-            max-width: 900px; /* Increased max width for larger content area */
-            padding: 40px; /* Increased padding for more spacious layout */
+            max-width: 900px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align to the left */
+            text-align: left; /* Align text to the left */
         }
 
         .section1 h1 {
-            font-size: 4.5rem; /* Larger font size for the main heading */
+            font-size: 4.5rem;
             line-height: 1.2;
-            margin-bottom: 40px; /* Increased margin for better spacing */
-            color: var(--text-color); /* Consistent text color */
+            margin-bottom: 40px;
+            color: var(--text-color);
         }
 
         .section1 p {
-            font-size: 2rem; /* Larger font size for the paragraph */
+            font-size: 2rem;
             line-height: 1.6;
-            margin-bottom: 50px; /* Increased margin for better spacing */
-            color: #333333; /* Darker text for better readability */
+            margin-bottom: 50px;
+            color: #333333;
+            max-width: 800px;
         }
 
         .section1 .buttons {
             display: flex;
-            justify-content: center;
-            gap: 30px; /* Increased gap between buttons */
+            justify-content: flex-start; /* Align buttons to the left */
+            gap: 30px;
+            flex-wrap: wrap;
         }
 
         .section1 .button {
-            padding: 18px 36px; /* Enlarged padding for bigger buttons */
-            font-size: 1.4rem; /* Larger font size for button text */
-            border-radius: 10px; /* More rounded corners */
+            padding: 18px 36px;
+            font-size: 1.4rem;
+            border-radius: 10px;
             transition: background-color 0.3s, transform 0.2s;
+            cursor: pointer;
         }
 
         .section1 .button.primary {
@@ -42,8 +49,8 @@
         }
 
         .section1 .button.primary:hover {
-            background-color: #1a5bb8; /* Darker shade on hover */
-            transform: translateY(-3px); /* Slight lift on hover */
+            background-color: #1a5bb8;
+            transform: translateY(-3px);
         }
 
         .section1 .button.secondary {
@@ -53,28 +60,56 @@
         }
 
         .section1 .button.secondary:hover {
-            background-color: #e0f0ff; /* Light blue background on hover */
-            transform: translateY(-3px); /* Slight lift on hover */
+            background-color: #e0f0ff;
+            transform: translateY(-3px);
         }
 
-        /* Responsive Adjustments for Section 1 */
-        @media (max-width: 768px) {
+        /* Responsive adjustments for section1 */
+        @media (max-width: 1200px) {
+            .section1 .container {
+                max-width: 80%;
+                padding: 30px;
+            }
+
             .section1 h1 {
-                font-size: 3rem; /* Adjusted font size for smaller screens */
+                font-size: 3.5rem;
             }
 
             .section1 p {
-                font-size: 1.6rem; /* Adjusted font size for smaller screens */
+                font-size: 1.8rem;
+                margin-bottom: 40px;
             }
 
             .section1 .button {
-                padding: 14px 28px; /* Reduced padding for smaller screens */
-                font-size: 1.2rem; /* Reduced font size for button text */
+                padding: 16px 32px;
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section1 .container {
+                max-width: 100%;
+                padding: 20px;
+            }
+
+            .section1 h1 {
+                font-size: 3rem;
+            }
+
+            .section1 p {
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+            }
+
+            .section1 .button {
+                padding: 14px 28px;
+                font-size: 1.2rem;
             }
 
             .section1 .buttons {
                 flex-direction: column;
-                gap: 20px; /* Reduced gap for vertical layout */
+                gap: 20px;
+                align-items: flex-start; /* Align buttons left on smaller screens */
             }
         }
     </style>

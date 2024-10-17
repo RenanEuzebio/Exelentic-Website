@@ -1,26 +1,27 @@
 <!-- section5.html -->
 <div class="section" style="padding: 50px; background-color: #f9f9f9; color: #0a3458;">
+    <!-- Unified Animation Container -->
     <div class="container animate-on-scroll animate-left" style="max-width: 1200px; margin: 0 auto;">
         <h2 style="font-size: 36px; text-align: center; margin-bottom: 40px; font-weight: 700;">
             Unsere Werte
         </h2>
-        <!-- Wrapper for All Cards with Single Animation -->
-        <div style="display: flex; justify-content: space-between; gap: 20px; align-items: stretch;" class="animate-on-scroll animate-left">
+        <!-- Flex Wrapper for Cards with Space-Between and Flex Wrap -->
+        <div style="display: flex; justify-content: space-between; gap: 20px; align-items: stretch; flex-wrap: wrap;">
             
             <!-- Card 1: Unterschiedliche Tools -->
             <div class="card" style="
-                width: 300px; 
+                flex: 1 1 300px; 
                 height: 500px; 
                 background-color: white; 
                 border-radius: 15px; 
                 box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); 
                 padding: 20px; 
                 position: relative; 
-                transition: transform 0.3s; 
+                transition: transform 0.3s, box-shadow 0.3s; 
                 display: flex; 
                 flex-direction: column; 
-                justify-content: center;
-            ">
+                justify-content: center; 
+                cursor: pointer;">
                 <div style="text-align: center; margin-bottom: 20px;">
                     <img src="svg/tool.svg" alt="Tools Icon" style="width: 50px; height: 50px;">
                 </div>
@@ -35,24 +36,24 @@
                     bottom: 0; 
                     left: 0; 
                     width: 100%; 
-                    border-radius: 0 0 15px 15px;
-                "></div>
+                    border-radius: 0 0 15px 15px;">
+                </div>
             </div>
             
             <!-- Card 2: Exelentic Academy -->
             <div class="card" style="
-                width: 300px; 
+                flex: 1 1 300px; 
                 height: 500px; 
                 background-color: white; 
                 border-radius: 15px; 
                 box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); 
                 padding: 20px; 
                 position: relative; 
-                transition: transform 0.3s; 
+                transition: transform 0.3s, box-shadow 0.3s; 
                 display: flex; 
                 flex-direction: column; 
-                justify-content: center;
-            ">
+                justify-content: center; 
+                cursor: pointer;">
                 <div style="text-align: center; margin-bottom: 20px;">
                     <img src="svg/hat.svg" alt="Academy Icon" style="width: 50px; height: 50px;">
                 </div>
@@ -67,24 +68,24 @@
                     bottom: 0; 
                     left: 0; 
                     width: 100%; 
-                    border-radius: 0 0 15px 15px;
-                "></div>
+                    border-radius: 0 0 15px 15px;">
+                </div>
             </div>
             
             <!-- Card 3: Kundenorientierung -->
             <div class="card" style="
-                width: 300px; 
+                flex: 1 1 300px; 
                 height: 500px; 
                 background-color: white; 
                 border-radius: 15px; 
                 box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); 
                 padding: 20px; 
                 position: relative; 
-                transition: transform 0.3s; 
+                transition: transform 0.3s, box-shadow 0.3s; 
                 display: flex; 
                 flex-direction: column; 
-                justify-content: center;
-            ">
+                justify-content: center; 
+                cursor: pointer;">
                 <div style="text-align: center; margin-bottom: 20px;">
                     <img src="svg/client.svg" alt="Client Orientation Icon" style="width: 50px; height: 50px;">
                 </div>
@@ -99,10 +100,17 @@
                     bottom: 0; 
                     left: 0; 
                     width: 100%; 
-                    border-radius: 0 0 15px 15px;
-                "></div>
+                    border-radius: 0 0 15px 15px;">
+                </div>
             </div>
-            
         </div>
     </div>
 </div>
+
+<!-- Additional CSS -->
+<style>
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+</style>

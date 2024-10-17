@@ -15,10 +15,10 @@
             --accent-color: #2173D1;
         }
 
-        /* Hide horizontal overflow and vertical overflow globally */
+        /* Hide horizontal overflow and set up body for internal scrolling */
         html, body {
             overflow-x: hidden;
-            overflow-y: hidden; /* Hide vertical overflow */
+            overflow-y: hidden; /* Hide vertical overflow on body */
             font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -26,23 +26,78 @@
             height: 100vh;
         }
 
-        /* Container styles */
+        /* Top Panel Styling */
+        .top-panel {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            box-sizing: border-box;
+            z-index: 1000;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hide top panel on scroll down */
+        .top-panel.hidden {
+            transform: translateY(-100%);
+        }
+
+        .top-panel .logo {
+            font-size: 1.5rem; /* 24px */
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .top-panel .navigation {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .top-panel .navigation a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+
+        .top-panel .navigation a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Scrollable Sections Container */
+        #sections-container {
+            padding-top: 60px; /* Height of the top panel */
+            overflow-y: auto; /* Enable vertical scrolling within this container */
+            height: calc(100vh - 60px); /* Full viewport height minus top panel */
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+
+        /* Section Styling */
         .section {
             display: flex;
             justify-content: center; 
             align-items: center;     
-            height: 100vh;
+            min-height: 100vh; /* Allows sections to expand beyond viewport if needed */
             padding: 20px;
             box-sizing: border-box;
             background-color: #ffffff;
         }
 
+        /* Container Styling */
         .container {
-            max-width: 600px;
+            max-width: 1200px;
             width: 100%;
             padding: 20px;
             background-color: #ffffff;
             border-radius: 10px;
+            box-sizing: border-box;
         }
 
         /* Animate on Scroll */
@@ -87,74 +142,36 @@
             opacity: 1;
         }
 
-        /* Top Panel Styling */
-        .top-panel {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #ffffff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            box-sizing: border-box;
-            z-index: 1000;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        /* Hide top panel on scroll down */
-        .top-panel.hidden {
-            transform: translateY(-100%);
-        }
-
-        .top-panel .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-
-        .top-panel .navigation {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .top-panel .navigation a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 600;
-            transition: color 0.3s;
-            white-space: nowrap;
-        }
-
-        .top-panel .navigation a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Add padding to prevent content from hiding behind the top panel */
-        #sections-container {
-            padding-top: 60px; /* Height of the top panel */
-            overflow-y: auto; /* Enable vertical scrolling within this container */
-            height: calc(100vh - 60px); /* Full viewport height minus top panel */
-        }
-
         /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            :root {
-                --animation-distance-left: 50px;
-            }
-
+        @media (max-width: 1200px) {
             .container {
                 max-width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-panel .logo {
+                font-size: 1.25rem; /* 20px */
             }
 
             .top-panel .navigation {
                 gap: 10px;
             }
 
-            .top-panel .logo {
-                font-size: 20px;
+            .container {
+                max-width: 100%;
+                padding: 15px;
+            }
+
+            /* Stack navigation on smaller screens */
+            .top-panel {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .top-panel .navigation {
+                width: 100%;
+                justify-content: flex-start;
             }
         }
 
@@ -249,9 +266,9 @@
 
         function initObserver() {
             const options = {
-                root: null,
+                root: container, // Use the sections-container as the root
                 rootMargin: '0px',
-                threshold: 0.5
+                threshold: 0.1 // Trigger when 10% of the element is visible
             };
 
             const callback = (entries, observer) => {
