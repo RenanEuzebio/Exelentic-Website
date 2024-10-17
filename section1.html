@@ -1,8 +1,6 @@
 <!-- section1.html -->
 <div class="section section1">
-    <!-- Exclusive CSS for Section 1 -->
     <style>
-        /* Scoped styles for section1 */
         .section1 .container {
             max-width: 900px;
             padding: 40px;
@@ -29,7 +27,7 @@
 
         .section1 .buttons {
             display: flex;
-            justify-content: flex-start; /* Align buttons to the left */
+            justify-content: flex-start;
             gap: 30px;
             flex-wrap: wrap;
         }
@@ -45,7 +43,6 @@
         .section1 .button.primary {
             background-color: var(--accent-color);
             color: #ffffff;
-            border: none;
         }
 
         .section1 .button.primary:hover {
@@ -64,53 +61,17 @@
             transform: translateY(-3px);
         }
 
-        /* Responsive adjustments for section1 */
         @media (max-width: 1200px) {
-            .section1 .container {
-                max-width: 80%;
-                padding: 30px;
-            }
-
-            .section1 h1 {
-                font-size: 3.5rem;
-            }
-
-            .section1 p {
-                font-size: 1.8rem;
-                margin-bottom: 40px;
-            }
-
-            .section1 .button {
-                padding: 16px 32px;
-                font-size: 1.3rem;
-            }
+            .section1 .container { max-width: 80%; padding: 30px; }
+            .section1 h1 { font-size: 3.5rem; }
+            .section1 p { font-size: 1.8rem; margin-bottom: 40px; }
         }
 
         @media (max-width: 768px) {
-            .section1 .container {
-                max-width: 100%;
-                padding: 20px;
-            }
-
-            .section1 h1 {
-                font-size: 3rem;
-            }
-
-            .section1 p {
-                font-size: 1.6rem;
-                margin-bottom: 30px;
-            }
-
-            .section1 .button {
-                padding: 14px 28px;
-                font-size: 1.2rem;
-            }
-
-            .section1 .buttons {
-                flex-direction: column;
-                gap: 20px;
-                align-items: flex-start; /* Align buttons left on smaller screens */
-            }
+            .section1 .container { max-width: 100%; padding: 20px; }
+            .section1 h1 { font-size: 3rem; }
+            .section1 p { font-size: 1.6rem; margin-bottom: 30px; }
+            .section1 .buttons { flex-direction: column; gap: 20px; }
         }
     </style>
 
