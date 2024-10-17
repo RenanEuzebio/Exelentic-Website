@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exelentic</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Define CSS Variables */
+        :root {
+            --text-color: #0a3458;
+            --accent-color: #2173D1;
+        }
+
+        /* Hide horizontal overflow and vertical overflow globally */
+        html, body {
+            overflow-x: hidden;
+            overflow-y: hidden; /* Hide vertical overflow */
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            height: 100vh;
+        }
+
+        /* Container styles */
+        .section {
+            display: flex;
+            justify-content: center; 
+            align-items: center;     
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+        }
+
+        /* Animate on Scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+        }
+
+        .animate-left {
+            transform: translateX(-150px);
+        }
+
+        .animate-left.animate {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .animate-right {
+            transform: translateX(150px);
+        }
+
+        .animate-right.animate {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .animate-top {
+            transform: translateY(-150px);
+        }
+
+        .animate-top.animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .animate-bottom {
+            transform: translateY(200px);
+        }
+
+        .animate-bottom.animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Top Panel Styling */
+        .top-panel {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            box-sizing: border-box;
+            z-index: 1000;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hide top panel on scroll down */
+        .top-panel.hidden {
+            transform: translateY(-100%);
+        }
+
+        .top-panel .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .top-panel .navigation {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .top-panel .navigation a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+
+        .top-panel .navigation a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Add padding to prevent content from hiding behind the top panel */
+        #sections-container {
+            padding-top: 60px; /* Height of the top panel */
+            overflow-y: auto; /* Enable vertical scrolling within this container */
+            height: calc(100vh - 60px); /* Full viewport height minus top panel */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            :root {
+                --animation-distance-left: 50px;
+            }
+
+            .container {
+                max-width: 90%;
+            }
+
+            .top-panel .navigation {
+                gap: 10px;
+            }
+
+            .top-panel .logo {
+                font-size: 20px;
+            }
+        }
+
+        /* Accessibility: Reduce motion if preferred */
+        @media (prefers-reduced-motion: reduce) {
+            .animate-on-scroll {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Panel -->
+    <div class="top-panel" id="topPanel">
+        <div class="logo">Exelentic</div>
+        <nav class="navigation">
+            <a href="#home">Home</a>
+            <a href="#unternehmen">Unternehmen</a>
+            <a href="#karriere">Karriere</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
+    </div>
+
+    <!-- Container to hold all sections -->
+    <div id="sections-container">
+        <!-- Sections will load here -->
+    </div>
+
+    <script>
+        const sections = [
+            'section1.html',
+            'section2.html',
+            'section3.html',
+            'section4.html',
+            'section5.html',
+            'section6.html',
+            'section7.html',
+            'section8.html',
+            'section9.html',
+        ];
+
+        const container = document.getElementById('sections-container');
+        const timeoutIds = new Map();
+        let lastScrollTop = 0; // Track the last scroll position
+        const topPanel = document.getElementById('topPanel'); // Top panel element
+
+        async function loadSection(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${url}: ${response.statusText}`);
+                }
+                const html = await response.text();
+                const sectionDiv = document.createElement('div');
+                sectionDiv.innerHTML = html;
+
+                if (sectionDiv.firstElementChild) {
+                    container.appendChild(sectionDiv.firstElementChild);
+                } else {
+                    const errorDiv = document.createElement('div');
+                    errorDiv.classList.add('section');
+                    errorDiv.innerHTML = `
+                        <div class="container">
+                            <h1>Error Loading Section</h1>
+                            <p>Sorry, there was an issue loading this section.</p>
+                        </div>
+                    `;
+                    container.appendChild(errorDiv);
+                }
+            } catch (error) {
+                console.error(error);
+                const errorDiv = document.createElement('div');
+                errorDiv.classList.add('section');
+                errorDiv.innerHTML = `
+                    <div class="container">
+                        <h1>Error Loading Section</h1>
+                        <p>Sorry, there was an issue loading this section.</p>
+                    </div>
+                `;
+                container.appendChild(errorDiv);
+            }
+        }
+
+        async function loadAllSectionsSequentially() {
+            for (const section of sections) {
+                await loadSection(section);
+            }
+            initObserver();
+        }
+
+        function initObserver() {
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+
+            const callback = (entries, observer) => {
+                entries.forEach(entry => {
+                    const element = entry.target;
+                    if (entry.isIntersecting) {
+                        element.classList.add('animate');
+                        if (timeoutIds.has(element)) {
+                            clearTimeout(timeoutIds.get(element));
+                            timeoutIds.delete(element);
+                        }
+                    } else {
+                        const timeoutId = setTimeout(() => {
+                            element.classList.remove('animate');
+                            timeoutIds.delete(element);
+                        }, 2000);
+                        timeoutIds.set(element, timeoutId);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(callback, options);
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            animatedElements.forEach(el => observer.observe(el));
+        }
+
+        // Add scroll event listener for the top panel animation
+        const sectionsContainer = document.getElementById('sections-container');
+        sectionsContainer.addEventListener('scroll', () => {
+            const currentScrollTop = sectionsContainer.scrollTop;
+            if (currentScrollTop > lastScrollTop) {
+                // Scrolling down
+                topPanel.classList.add('hidden');
+            } else {
+                // Scrolling up
+                topPanel.classList.remove('hidden');
+            }
+            lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Avoid negative values
+        });
+
+        document.addEventListener('DOMContentLoaded', loadAllSectionsSequentially);
+    </script>
+</body>
+</html>
