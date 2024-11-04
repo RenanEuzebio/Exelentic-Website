@@ -1,0 +1,187 @@
+<div class="section section-one" id="s1" style="min-height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center; flex-direction: row; position: relative;">
+    <!-- Grouped Elements Container (Left Aligned) -->
+    <div class="text-group" style="display: flex; flex-direction: column; justify-content: flex-start; max-width: 45%; position: relative; z-index: 1; margin-right: 2%;">
+        <!-- Large left-aligned text with animation -->
+        <h1 data-animate="zoomIn" class="animate" style="color: var(--dark-blue); font-size: 64px; margin: 0 0 10px 0; text-align: left;">
+            If you hate it,<br>automate it!
+        </h1>
+
+        <!-- Small gray text -->
+        <p data-animate="zoomIn" class="animate" style="color: var(--gray); font-size: 18px; margin: 0 0 20px 0; text-align: left;">
+            Bei Exelentic steigern wir die Effizienz Ihres Unternehmens<br>
+            durch Automatisierung und KI-gestützte Technologie.
+        </p>
+
+        <!-- Two blue buttons aligned side by side -->
+        <div class="buttons-container" style="display: flex; gap: 10px; margin-top: 20px;">
+            <button style="background-color: var(--blue); color: white; border: none; padding: 8px 16px; font-size: 16px; border-radius: 5px; cursor: pointer;" data-animate="fadeInLeft">
+                Mehr erfahren
+            </button>
+            <button style="background-color: var(--dark-blue); color: white; border: none; padding: 8px 16px; font-size: 16px; border-radius: 5px; cursor: pointer;" data-animate="fadeInLeft">
+                Loslegen
+            </button>
+        </div>
+    </div>
+
+    <!-- White Card positioned at the right with accomplishments as cards side-by-side -->
+    <div class="white-card" data-animate="zoomIn" style="width: 40%; background-color: white; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 1px solid #ccc; padding: 20px; z-index: 1; margin-left: 2%; position: relative;">
+        <h2 style="color: var(--dark-blue); font-size: 22px; margin-bottom: 20px; text-align: center;">
+            Warum Exelentic wählen?
+        </h2>
+        <div style="display: flex; gap: 15px; justify-content: space-between;">
+            <div style="flex: 1; background-color: #f3f8fd; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-size: 18px; color: #2173D1; font-weight: 600;">Top-Automatisierungsexperten</h3>
+                <p style="font-size: 14px; color: var(--text-color);">Die führenden Spezialisten für Automatisierung und KI-Lösungen.</p>
+            </div>
+            <div style="flex: 1; background-color: #e0f2ff; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-size: 18px; color: #2173D1; font-weight: 600;">Schnelle Innovation</h3>
+                <p style="font-size: 14px; color: var(--text-color);">Stets neue Lösungen in der Automatisierung vorantreiben.</p>
+            </div>
+            <div style="flex: 1; background-color: #d1ecff; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-size: 18px; color: #2173D1; font-weight: 600;">Vertrauen weltweit führender Marken</h3>
+                <p style="font-size: 14px; color: var(--text-color);">Eine Erfolgsbilanz mit weltweit führenden Unternehmen.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Triangle Background as SVG -->
+    <svg class="triangle" viewBox="0 0 1600 1200" style="position: absolute; top: 50%; left: 50%; width: 150vh; height: 150vh; z-index: 0; opacity: 0.5; animation: triangle-move 30s cubic-bezier(0.42, 0.0, 0.58, 1.0) infinite;">
+        <path d="M740.199 -141.7L1209.73 -33.2747C1240.97 -26.0606 1260.44 5.10148 1253.22 36.3415L1144.8 505.868C1133.17 556.223 1066.43 567.428 1039.02 523.561L677.918 -54.3902C650.51 -98.2564 689.798 -153.338 740.199 -141.7Z" fill="#b300b3"/>
+    </svg>
+    
+    <!-- Blue Shape Background as SVG -->
+    <svg class="circle" viewBox="0 0 200 200" style="position: absolute; top: 45%; left: 60%; width: 60vh; height: 60vh; z-index: 0; mix-blend-mode: multiply; opacity: 0.7; animation: circle-move 35s cubic-bezier(0.42, 0.0, 0.58, 1.0) infinite;">
+        <path fill="rgba(65, 93, 254, 1)" fill-rule="evenodd" d="M199.06 140.014c.545 5.496-3.985 9.986-9.508 9.986h-36.25c-5.523 0-9.882-4.537-11.129-9.917-4.492-19.385-21.869-33.833-42.62-33.833-20.752 0-38.13 14.448-42.622 33.833-1.247 5.38-5.606 9.917-11.129 9.917H9.552C4.03 150-.5 145.51.045 140.014 5.055 89.474 47.694 50 99.552 50c51.858 0 94.497 39.474 99.508 90.014Z" clip-rule="evenodd"></path>
+    </svg>
+
+    <!-- Partners section starts here -->
+    <div class="partners-section" style="position: absolute; bottom: 0; width: 100%; text-align: center;">
+        <div class="centered-text" style="font-size: 1.2em; color: var(--dark-blue); margin-bottom: 20px;">
+            Zusammenarbeit mit <strong>44</strong> vertrauenswürdigen Partnern
+        </div>
+        
+        <!-- Slider section at the bottom for Partners Carousel -->
+        <div class="slider" style="z-index: 0;">
+            <div class="slide-track-1">
+                <div class="slide">Logo 1</div>
+                <div class="slide">Logo 2</div>
+                <div class="slide">Logo 3</div>
+                <div class="slide">Logo 4</div>
+                <div class="slide">Logo 5</div>
+                <div class="slide">Logo 6</div>
+                <div class="slide">Logo 7</div>
+                <!-- Repeat logos for continuous scroll effect -->
+                <div class="slide">Logo 1</div>
+                <div class="slide">Logo 2</div>
+                <div class="slide">Logo 3</div>
+                <div class="slide">Logo 4</div>
+                <div class="slide">Logo 5</div>
+                <div class="slide">Logo 6</div>
+                <div class="slide">Logo 7</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Triangle, Circle, and Slider styles -->
+<style>
+    .slider {
+        height: 10vh;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        z-index: 0;
+        cursor: default;
+        user-select: none;
+        touch-action: none;
+    }
+
+    .slider .slide-track-1 {
+        animation: scroll-l 30s linear infinite;
+        display: flex;
+        width: calc(250px * 14);
+    }
+
+    .slider .slide {
+        height: 10vh;
+        width: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: var(--dark-blue);
+        text-align: center;
+    }
+
+    @keyframes scroll-l {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-250px * 7));
+        }
+    }
+
+    /* Keyframes for Triangle Movement */
+    @keyframes triangle-move {
+        0% {
+            transform: translate(-25%, -35%) scale(1) rotate(0deg);
+        }
+        25% {
+            transform: translate(-15%, -20%) scale(1.1) rotate(-10deg);
+        }
+        50% {
+            transform: translate(-20%, -25%) scale(1.1) rotate(20deg);
+        }
+        100% {
+            transform: translate(-25%, -35%) scale(1) rotate(0deg);
+        }
+    }
+
+    /* Keyframes for Circle Movement */
+    @keyframes circle-move {
+        0% {
+            transform: translate(5%, -15%) scale(0.9) rotate(-10deg);
+        25% {
+            transform: translate(0%, -50%) scale(1.25) rotate(-30deg);
+        50% {
+            transform: translate(22%, -22%) scale(1) rotate(15deg);
+        100% {
+            transform: translate(5%, -15%) scale(0.9) rotate(-10deg);
+        }
+    }
+
+    /* Improved Animation Timing for Shapes */
+    .triangle, .circle {
+        animation-timing-function: cubic-bezier(0.42, 0.0, 0.58, 1.0);
+    }
+</style>
+
+<script>
+    // JS to trigger animations for elements with data-animate attribute
+    document.addEventListener('DOMContentLoaded', function() {
+        const elements = document.querySelectorAll('[data-animate]');
+
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    entry.target.classList.remove('hidden');
+                } else {
+                    entry.target.classList.remove('visible');
+                    entry.target.classList.add('hidden');
+                }
+            });
+        }, observerOptions);
+
+        elements.forEach((el) => {
+            el.classList.add('animate-in');
+            observer.observe(el);
+        });
+    });
+</script>

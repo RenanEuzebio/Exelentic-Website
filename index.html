@@ -5,312 +5,335 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exelentic</title>
     
-    <!-- Google Fonts: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <!-- Fonts and CSS Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    
     <style>
-        /* Define CSS Variables */
         :root {
-            --text-color: #0a3458;
-            --accent-color: #2173D1;
+            --blue: #2173D1;
+            --dark-blue: #0a3458;
+            --gray: #476788;
+            --light-gray: #f9f9f9;
+            --custom-footer-height: 10vh;
+            --primary-color: #2173D1;
+            --accent-color: #1976D2;
+            --secondary-accent-color: #0D47A1;
+            --tertiary-accent-color: #003c8f;
+            --card-background: #ffffff;
+            --card-shadow: rgba(0, 0, 0, 0.2);
+            --card-hover-shadow: rgba(0, 0, 0, 0.3);
         }
 
-        /* Hide horizontal overflow and set up body for internal scrolling */
         html, body {
-            overflow-x: hidden;
-            overflow-y: hidden; /* Hide vertical overflow on body */
-            font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            height: 100vh;
+            height: 100%;
+            width: 100%;
+            background: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
         }
 
-        /* Top Panel Styling */
-        .top-panel {
+        .scroll-container {
+            height: 100%;
+            width: 100%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            overscroll-behavior: none;
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        .section {
+            min-height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            position: relative;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .progress-container {
             position: fixed;
             top: 0;
+            left: 0;
+            width: 20px;
+            height: 100vh;
+            background: #ccc;
+            z-index: 1;
+        }
+
+        .progress-bar {
             width: 100%;
-            background-color: #ffffff;
+            height: 0%;
+            background: var(--dark-blue);
+            position: absolute;
+            top: 0;
+        }
+
+        #navbar {
+            background: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: top 0.3s ease;
+            z-index: 3;
+            font-weight: bold;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #navbar .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
-            box-sizing: border-box;
-            z-index: 1000;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        /* Hide top panel on scroll down */
-        .top-panel.hidden {
-            transform: translateY(-100%);
-        }
-
-        .top-panel .logo {
-            font-size: 1.5rem; /* 24px */
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-
-        .top-panel .navigation {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .top-panel .navigation a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 600;
-            transition: color 0.3s;
-            white-space: nowrap;
-        }
-
-        .top-panel .navigation a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Scrollable Sections Container */
-        #sections-container {
-            padding-top: 60px; /* Height of the top panel */
-            overflow-y: auto; /* Enable vertical scrolling within this container */
-            overflow-x: hidden; /* Ensure horizontal scrolling is hidden */
-            height: calc(100vh - 60px); /* Full viewport height minus top panel */
-            scroll-behavior: smooth; /* Smooth scrolling */
-        }
-
-        /* Section Styling */
-        .section {
-            display: flex;
-            justify-content: center; 
-            align-items: center;     
-            min-height: 100vh; /* Allows sections to expand beyond viewport if needed */
-            padding: 20px;
-            box-sizing: border-box;
-            background-color: #ffffff;
-        }
-
-        /* Container Styling */
-        .container {
+            width: 90%;
             max-width: 1200px;
-            width: 100%;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-sizing: border-box;
+            margin: 0 auto;
         }
 
-        /* Animate on Scroll */
-        .animate-on-scroll {
-            opacity: 0;
-            transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+        #navbar .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
         }
 
-        .animate-left {
-            transform: translateX(-150px);
+        #navbar a {
+            color: var(--dark-blue);
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        .animate-left.animate {
-            transform: translateX(0);
-            opacity: 1;
+        #navbar a:hover {
+            color: var(--blue);
         }
 
-        .animate-right {
-            transform: translateX(150px);
+        #exelentic-logo a {
+            font-size: 24px;
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 700;
         }
 
-        .animate-right.animate {
-            transform: translateX(0);
-            opacity: 1;
+        #backToTopBtn {
+            position: fixed;
+            bottom: 120px;
+            left: 40px;
+            display: none;
+            background: var(--blue);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 0;
+            animation-duration: 0.5s;
         }
 
-        .animate-top {
-            transform: translateY(-150px);
+        #backToTopBtn:hover { 
+            background: var(--dark-blue); 
         }
 
-        .animate-top.animate {
-            transform: translateY(0);
-            opacity: 1;
+        .animate__animated { 
+            opacity: 0; 
         }
 
-        .animate-bottom {
-            transform: translateY(200px);
-        }
-
-        .animate-bottom.animate {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 1200px) {
-            .container {
-                max-width: 90%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .top-panel .logo {
-                font-size: 1.25rem; /* 20px */
-            }
-
-            .top-panel .navigation {
-                gap: 10px;
-            }
-
-            .container {
-                max-width: 100%;
-                padding: 15px;
-            }
-
-            /* Stack navigation on smaller screens */
-            .top-panel {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .top-panel .navigation {
-                width: 100%;
-                justify-content: flex-start;
-            }
-        }
-
-        /* Accessibility: Reduce motion if preferred */
-        @media (prefers-reduced-motion: reduce) {
-            .animate-on-scroll {
-                transform: translateX(0) translateY(0);
-                opacity: 1;
-                transition: none;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Top Panel -->
-    <div class="top-panel" id="topPanel">
-        <div class="logo">Exelentic</div>
-        <nav class="navigation">
-            <a href="#home">Home</a>
-            <a href="#unternehmen">Unternehmen</a>
-            <a href="#karriere">Karriere</a>
-            <a href="#kontakt">Kontakt</a>
-        </nav>
+    <!-- Progress Bar -->
+    <div class="progress-container" id="progressContainer">
+        <div class="progress-bar" id="myBar"></div>
     </div>
-
-    <!-- Container to hold all sections -->
-    <div id="sections-container">
-        <!-- Sections will load here -->
+    
+    <!-- Navbar -->
+    <div id="navbar">
+        <div class="nav-container">
+            <div id="exelentic-logo">
+                <a href="#s1" class="scroll-link">Exelentic</a>
+            </div>
+            <div class="nav-links">
+                <a href="#s1" class="scroll-link">Home</a>
+                <a href="#unternehmen" class="scroll-link">Unternehmen</a>
+                <a href="#roi" class="scroll-link">ROI</a>
+                <a href="#offene-stellen" class="scroll-link">Karriere</a>
+                <a href="#kontakt" class="scroll-link">Kontakt</a>
+            </div>
+        </div>
     </div>
+    
+    <!-- Scrollable Container -->
+    <div class="scroll-container" id="scrollContainer">
+        <div id="sections-container">
+            <!-- Section content goes here -->
+        </div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn">Back to Top</button>
+    
+    <script src="js/roiCalculator.js"></script>
+    
+    <!-- Main Script for Section Loading and Other Functionalities -->
+<script>
+    (function() {
+        const preloadedSections = {};
+        let isAnimating = false, nextAnimation = null;
+        const scrollContainer = document.getElementById('scrollContainer');
+        
+        // Preload Sections
+        const preloadSections = async () => {
+            let sectionIndex = 1;
+            let sectionFound = true;
 
-    <script>
-        const sections = [
-            'section1.html',
-            'section2.html',
-            'section3.html',
-            'section4.html',
-            'section5.html',
-            'section6.html',
-            'section7.html',
-            'section8.html',
-            'section9.html',
-        ];
-
-        const container = document.getElementById('sections-container');
-        const timeoutIds = new Map();
-        let lastScrollTop = 0; // Track the last scroll position
-        const topPanel = document.getElementById('topPanel'); // Top panel element
-
-        async function loadSection(url) {
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`Failed to load ${url}: ${response.statusText}`);
+            while (sectionFound) {
+                const section = `sections/s${sectionIndex}.html`;
+                try {
+                    const res = await fetch(section);
+                    if (res.ok) {
+                        preloadedSections[section] = await res.text();
+                    } else if (res.status === 404) {
+                        sectionFound = false;
+                    }
+                } catch (error) {
+                    console.error(`Error fetching ${section}:`, error);
+                    sectionFound = false;
                 }
-                const html = await response.text();
-                const sectionDiv = document.createElement('div');
-                sectionDiv.innerHTML = html;
-
-                if (sectionDiv.firstElementChild) {
-                    container.appendChild(sectionDiv.firstElementChild);
-                } else {
-                    const errorDiv = document.createElement('div');
-                    errorDiv.classList.add('section');
-                    errorDiv.innerHTML = `
-                        <div class="container">
-                            <h1>Error Loading Section</h1>
-                            <p>Sorry, there was an issue loading this section.</p>
-                        </div>
-                    `;
-                    container.appendChild(errorDiv);
-                }
-            } catch (error) {
-                console.error(error);
-                const errorDiv = document.createElement('div');
-                errorDiv.classList.add('section');
-                errorDiv.innerHTML = `
-                    <div class="container">
-                        <h1>Error Loading Section</h1>
-                        <p>Sorry, there was an issue loading this section.</p>
-                    </div>
-                `;
-                container.appendChild(errorDiv);
+                sectionIndex++;
             }
-        }
+        };
 
-        async function loadAllSectionsSequentially() {
-            for (const section of sections) {
-                await loadSection(section);
-            }
-            initObserver();
-        }
+        // Inject Sections
+        const injectSections = () => {
+            const container = document.getElementById('sections-container');
+            Object.keys(preloadedSections).forEach(section => {
+                const div = document.createElement('div');
+                div.className = 'section';
+                div.innerHTML = preloadedSections[section] || `<p>Error Loading ${section}</p>`;
+                container.appendChild(div);
+            });
+            setupObserver();
+        };
 
-        function initObserver() {
-            const options = {
-                root: container, // Use the sections-container as the root
-                rootMargin: '0px',
-                threshold: 0.1 // Trigger when 10% of the element is visible
-            };
+        // Setup Intersection Observer
+        const setupObserver = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(({ isIntersecting, target }) => {
+                    const animation = target.dataset.animate;
 
-            const callback = (entries, observer) => {
-                entries.forEach(entry => {
-                    const element = entry.target;
-                    if (entry.isIntersecting) {
-                        element.classList.add('animate');
-                        if (timeoutIds.has(element)) {
-                            clearTimeout(timeoutIds.get(element));
-                            timeoutIds.delete(element);
-                        }
+                    if (isIntersecting) {
+                        target.classList.add('animate__animated', `animate__${animation}`);
+                        target.style.opacity = '1';
+                        clearTimeout(target.hideTimeout);
                     } else {
-                        const timeoutId = setTimeout(() => {
-                            element.classList.remove('animate');
-                            timeoutIds.delete(element);
-                        }, 2000);
-                        timeoutIds.set(element, timeoutId);
+                        target.hideTimeout = setTimeout(() => {
+                            if (!target.classList.contains('visible')) {
+                                target.classList.remove(`animate__${animation}`);
+                                target.style.opacity = '0';
+                            }
+                        }, 5000);
+                        target.classList.remove('visible');
                     }
                 });
-            };
+            }, { threshold: 0.5, root: scrollContainer });
 
-            const observer = new IntersectionObserver(callback, options);
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
-            animatedElements.forEach(el => observer.observe(el));
-        }
+            document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+        };
 
-        // Add scroll event listener for the top panel animation
-        const sectionsContainer = document.getElementById('sections-container');
-        sectionsContainer.addEventListener('scroll', () => {
-            const currentScrollTop = sectionsContainer.scrollTop;
-            if (currentScrollTop > lastScrollTop) {
-                // Scrolling down
-                topPanel.classList.add('hidden');
-            } else {
-                // Scrolling up
-                topPanel.classList.remove('hidden');
-            }
-            lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Avoid negative values
+        // Smooth Scroll for Links
+        document.querySelectorAll('.scroll-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = e.currentTarget.getAttribute('href');
+                if (targetId) {
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
         });
 
-        document.addEventListener('DOMContentLoaded', loadAllSectionsSequentially);
-    </script>
+        // DOM Content Loaded
+        document.addEventListener('DOMContentLoaded', async () => {
+            await preloadSections();
+            injectSections();
+        });
+
+        // Progress Bar Update
+        scrollContainer.addEventListener('scroll', () => {
+            const winScroll = scrollContainer.scrollTop;
+            const height = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('myBar').style.height = `${scrolled}%`;
+        });
+
+        // Back to Top Button Logic
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        backToTopBtn.addEventListener('click', () => {
+            scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Auto-Hide Navbar
+        let prevScroll = scrollContainer.scrollTop;
+        scrollContainer.addEventListener('scroll', () => {
+            const currentScroll = scrollContainer.scrollTop;
+            const navbar = document.getElementById('navbar');
+            navbar.style.top = (prevScroll > currentScroll) ? '0' : `-${navbar.offsetHeight}px`;
+            prevScroll = currentScroll;
+        });
+
+        // Show/Hide Back to Top Button
+        scrollContainer.addEventListener('scroll', () => {
+            const reachedBottom = (scrollContainer.scrollTop + scrollContainer.clientHeight) >= (scrollContainer.scrollHeight - 10);
+            if (reachedBottom && !backToTopBtn.classList.contains('animate__fadeInLeft')) queueAnimation('show');
+            else if (!reachedBottom && backToTopBtn.classList.contains('animate__fadeInLeft')) queueAnimation('hide');
+        });
+
+        // Animation Queue
+        const queueAnimation = (action) => {
+            if (isAnimating) nextAnimation = action;
+            else action === 'show' ? showButton() : hideButton();
+        };
+
+        const showButton = () => {
+            isAnimating = true;
+            backToTopBtn.style.display = 'block';
+            backToTopBtn.classList.remove('animate__fadeOutLeft');
+            backToTopBtn.classList.add('animate__animated', 'animate__fadeInLeft');
+        };
+
+        const hideButton = () => {
+            isAnimating = true;
+            backToTopBtn.classList.remove('animate__fadeInLeft');
+            backToTopBtn.classList.add('animate__animated', 'animate__fadeOutLeft');
+        };
+
+        backToTopBtn.addEventListener('animationend', (e) => {
+            if (e.animationName === 'fadeOutLeft') backToTopBtn.style.display = 'none';
+            isAnimating = false;
+            if (nextAnimation) { queueAnimation(nextAnimation); nextAnimation = null; }
+        });
+
+    })();
+</script>
+
 </body>
 </html>

@@ -1,0 +1,136 @@
+<div class="section section-seven" id="roi" style="min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 40px; box-sizing: border-box; background-color: #f5f7fa;">
+    <!-- Abschnittstitel -->
+    <h1 data-animate="zoomIn" class="animate" style="color: #0a3458; font-size: 36px; margin-bottom: 30px; text-align: center; width: 100%;">
+        Berechnen Sie Ihren ROI mit Exelentic
+    </h1>
+
+    <!-- Flex-Container für zentrierte Ausrichtung -->
+    <div class="roi-wrapper" style="display: flex; gap: 40px; align-items: center; justify-content: center; max-width: 1200px; margin: 0 auto;">
+        
+        <!-- ROI-Rechner-Container -->
+        <div class="roi-calculator-container" style="flex: 1; max-width: 480px; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; gap: 20px;">
+            <!-- Prozesslänge-Schieberegler -->
+            <div class="calculator-item" style="display: flex; flex-direction: column;">
+                <label for="process-length" style="font-weight: 600; font-size: 1rem; color: #555;">Wie lang ist der Prozess?</label>
+                <input type="range" id="process-length" name="process-length" min="1" max="3" step="1" value="2" style="width: 100%;" oninput="calculateROI()">
+                <div class="slider-labels" style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #888;">
+                    <span>Kurz</span>
+                    <span>Mittel</span>
+                    <span>Lang</span>
+                </div>
+            </div>
+
+            <!-- Prozesskomplexität-Schieberegler -->
+            <div class="calculator-item" style="display: flex; flex-direction: column;">
+                <label for="process-complexity" style="font-weight: 600; font-size: 1rem; color: #555;">Wie komplex ist der Prozess?</label>
+                <input type="range" id="process-complexity" name="process-complexity" min="1" max="3" step="1" value="2" style="width: 100%;" oninput="calculateROI()">
+                <div class="slider-labels" style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #888;">
+                    <span>Einfach</span>
+                    <span>Mittel</span>
+                    <span>Komplex</span>
+                </div>
+            </div>
+
+            <!-- Physische Dokumente vorhanden -->
+            <div class="calculator-item" style="display: flex; flex-direction: column;">
+                <label style="font-weight: 600; font-size: 1rem; color: #555;">Gibt es physische Dokumente?</label>
+                <div class="radio-group" style="display: flex; gap: 20px; margin-top: 5px; font-size: 0.9rem;">
+                    <label style="display: flex; align-items: center; gap: 5px;">
+                        <input type="radio" id="documents-yes" name="documents" value="yes" onclick="calculateROI()"> Ja
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 5px;">
+                        <input type="radio" id="documents-no" name="documents" value="no" checked onclick="calculateROI()"> Nein
+                    </label>
+                </div>
+            </div>
+
+            <!-- Lehrbarkeit für Praktikant -->
+            <div class="calculator-item" style="display: flex; flex-direction: column;">
+                <label style="font-weight: 600; font-size: 1rem; color: #555;">Könnte ein Praktikant diesen Prozess in einem Monat lernen?</label>
+                <div class="radio-group" style="display: flex; gap: 20px; margin-top: 5px; font-size: 0.9rem;">
+                    <label style="display: flex; align-items: center; gap: 5px;">
+                        <input type="radio" id="teachability-yes" name="teachability" value="yes" onclick="calculateROI()"> Ja
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 5px;">
+                        <input type="radio" id="teachability-no" name="teachability" value="no" checked onclick="calculateROI()"> Nein
+                    </label>
+                </div>
+            </div>
+
+            <!-- Durchschnittsgehalt-Schieberegler -->
+            <div class="calculator-item" style="display: flex; flex-direction: column;">
+                <label for="annual-salary" style="font-weight: 600; font-size: 1rem; color: #555;">Durchschnittliches Jahresgehalt (€)</label>
+                <input type="range" id="annual-salary" name="annual-salary" min="20000" max="100000" step="5000" value="30000" style="width: 100%;" oninput="calculateROI()">
+                <div class="slider-labels" style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #888;">
+                    <span>€20k</span>
+                    <span>€60k</span>
+                    <span>€100k</span>
+                </div>
+            </div>
+
+            <!-- Anzahl der beteiligten Mitarbeiter -->
+            <div class="calculator-item" style="display: flex; flex-direction: column;">
+                <label for="num-employees" style="font-weight: 600; font-size: 1rem; color: #555;">Anzahl der beteiligten Mitarbeiter</label>
+                <select id="num-employees" name="num-employees" style="width: 100%; padding: 10px; border-radius: 8px; font-size: 1rem; border: 1px solid #ccc;" onchange="calculateROI()">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4" selected>4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+
+            <!-- Stunden pro Woche pro Mitarbeiter -->
+            <div class="calculator-item" style="display: flex; flex-direction: column;">
+                <label for="hours-per-week" style="font-weight: 600; font-size: 1rem; color: #555;">Durchschnittliche Wochenstunden pro Mitarbeiter</label>
+                <input type="number" id="hours-per-week" name="hours-per-week" min="1" max="40" value="10" style="width: 100%; padding: 10px; border-radius: 8px; font-size: 1rem; border: 1px solid #ccc;" oninput="calculateROI()">
+            </div>
+        </div>
+
+        <!-- ROI-Projektionstabelle (standardmäßig sichtbar) -->
+        <div id="roi-table-container" style="flex: 1; max-width: 600px; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+            <div style="text-align: center; font-size: 1.3rem; margin-bottom: 15px; color: #0a3458;">ROI-Projektion über 4 Jahre</div>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background-color: #2173D1; color: #fff;">
+                        <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">Jahr</th>
+                        <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">Kosteneinsparungen (€)</th>
+                        <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">Gewinn (€)</th>
+                        <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">ROI (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #f7f9fc;">
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">Jahr 1</td>
+                        <td id="cost-savings-year1" style="padding: 10px; border: 1px solid #ddd; text-align: center;">€149,000.00</td>
+                        <td id="profit-year1" style="padding: 10px; border: 1px solid #ddd; text-align: center;">€89,000.00</td>
+                        <td id="roi-year1" style="padding: 10px; border: 1px solid #ddd; text-align: center;">120.00%</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">Jahr 2</td>
+                        <td id="cost-savings-year2" style="padding: 10px; border: 1px solid #ddd; text-align: center;">€156,350.00</td>
+                        <td id="profit-year2" style="padding: 10px; border: 1px solid #ddd; text-align: center;">€97,550.00</td>
+                        <td id="roi-year2" style="padding: 10px; border: 1px solid #ddd; text-align: center;">126.00%</td>
+                    </tr>
+                    <tr style="background-color: #f7f9fc;">
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">Jahr 3</td>
+                        <td id="cost-savings-year3" style="padding: 10px; border: 1px solid #ddd; text-align: center;">€164,064.50</td>
+                        <td id="profit-year3" style="padding: 10px; border: 1px solid #ddd; text-align: center;">€106,440.50</td>
+                        <td id="roi-year3" style="padding: 10px; border: 1px solid #ddd; text-align: center;">132.30%</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">Jahr 4</td>
+                        <td id="cost-savings-year4" style="padding: 10px; border: 1px solid #ddd; text-align: center;">€172,161.64</td>
+                        <td id="profit-year4" style="padding: 10px; border: 1px solid #ddd; text-align: center;">€115,690.12</td>
+                        <td id="roi-year4" style="padding: 10px; border: 1px solid #ddd; text-align: center;">138.92%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

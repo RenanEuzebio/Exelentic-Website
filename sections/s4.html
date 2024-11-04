@@ -1,0 +1,123 @@
+<div class="section" id="arbeitsweise" style="padding: 50px; background-color: #ffffff; color: #0a3458;">
+    <h1 data-animate="zoomIn" class="animate" style="color: var(--dark-blue); font-size: 38px; margin-bottom: 50px; font-weight: 700; text-align: center;">
+        So arbeiten wir für Sie oder mit Ihnen gemeinsam
+    </h1>
+
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        <div class="cards-container" style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+            
+            <!-- Step 1: Projekt -->
+            <div class="card animate" data-animate="fadeInLeft" style="flex: 1; min-width: 260px; padding: 20px; background-color: #f3f8fd; border-radius: 15px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-size: 32px; color: #2173D1; margin-bottom: 15px;">1</h3>
+                <h4 style="font-size: 24px; margin-bottom: 10px;">Projekt</h4>
+                <p>Beauftragen Sie uns, Ihre RPA-Landschaft in klassischen oder agilen IT-Projekten zu entwickeln und nahtlos an Ihre Fachabteilung zu übergeben.</p>
+            </div>
+
+            <!-- Step 2: Tandem & Gemeinsame Entwicklung -->
+            <div class="card animate" data-animate="fadeInLeft" style="flex: 1; min-width: 260px; padding: 20px; background-color: #e0f2ff; border-radius: 15px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-size: 32px; color: #2173D1; margin-bottom: 15px;">2</h3>
+                <h4 style="font-size: 24px; margin-bottom: 10px;">Tandem & Gemeinsame Entwicklung</h4>
+                <p>Haben Sie RPA-Entwickler im Haus? Wir arbeiten mit Ihnen zusammen, entwickeln neue Bots und erweitern Ihr RPA-Wissen für nachhaltigen Erfolg.</p>
+            </div>
+
+            <!-- Step 3: Qualitätsmanagement -->
+            <div class="card animate" data-animate="fadeInRight" style="flex: 1; min-width: 260px; padding: 20px; background-color: #d1ecff; border-radius: 15px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-size: 32px; color: #2173D1; margin-bottom: 15px;">3</h3>
+                <h4 style="font-size: 24px; margin-bottom: 10px;">Qualitätsmanagement</h4>
+                <p>Unzufrieden mit der Liefergeschwindigkeit Ihrer Roboter? Wir sind Ihr direkter Ansprechpartner für Qualitätsmanagement und sorgen für robuste, langlebige RPA-Lösungen.</p>
+            </div>
+
+            <!-- Step 4: Full-Service -->
+            <div class="card animate" data-animate="fadeInLeft" style="flex: 1; min-width: 260px; padding: 20px; background-color: #cce4ff; border-radius: 15px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-size: 32px; color: #2173D1; margin-bottom: 15px;">4</h3>
+                <h4 style="font-size: 24px; margin-bottom: 10px;">Full-Service</h4>
+                <p>Möchten Sie RPA nutzen, ohne eigenes Personal? Unser Team gewährleistet eine stabile, gewartete und flexible RPA-Lösung für Ihr Unternehmen.</p>
+            </div>
+
+            <!-- Step 5: "Feuerwehreinsatz" -->
+            <div class="card animate" data-animate="fadeInRight" style="flex: 1; min-width: 260px; padding: 20px; background-color: #c1dcff; border-radius: 15px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-size: 32px; color: #2173D1; margin-bottom: 15px;">5</h3>
+                <h4 style="font-size: 24px; margin-bottom: 10px;">"Feuerwehreinsatz"</h4>
+                <p>Wir retten RPA-Projekte, die anfangs scheiterten. Mit unserer Expertise lösen wir Abstimmungsprobleme und bauen Projekte nachhaltig aus.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('[data-animate]');
+            const observerOptions = { threshold: 0.1 };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const animation = entry.target.getAttribute('data-animate');
+                        entry.target.classList.add('animate__animated', `animate__${animation}`);
+                    }
+                });
+            }, observerOptions);
+
+            elements.forEach((el) => observer.observe(el));
+        });
+    </script>
+
+    <!-- Additional CSS for styling -->
+    <style>
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        
+        .card {
+            flex: 1;
+            min-width: 260px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h3 {
+            font-size: 32px;
+            color: #2173D1;
+            margin-bottom: 15px;
+        }
+        
+        .card h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .card p {
+            font-size: 16px;
+            color: var(--text-color);
+        }
+
+        /* Animate.css Library */
+        .animate__animated {
+            opacity: 0;
+        }
+        .animate__animated.animate__fadeInLeft,
+        .animate__animated.animate__fadeInRight,
+        .animate__animated.animate__zoomIn {
+            opacity: 1;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</div>
+
+
+

@@ -1,0 +1,235 @@
+<div class="section" id="unternehmen" style="min-height: 110vh; position: relative;">
+    <style>
+        /* Root Variables for Consistent Styling */
+        :root {
+            --primary-color: #2173D1;
+            --secondary-color: #0a3458;
+            --background-color: #ffffff;
+            --light-background: #f9f9f9;
+            --text-color: #0a3458;
+            --accent-color: #2173D1;
+            --border-color: #ccc;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --dark-blue: #0a3458;
+            --blue: #2173D1;
+        }
+
+        /* Section Styling */
+        .section#unternehmen {
+            padding: 60px 20px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        /* Section Title */
+        .section#unternehmen h1 {
+            color: var(--dark-blue);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 700;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Content Wrapper */
+        .section#unternehmen .content-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Text Container */
+        .section#unternehmen .text-container {
+            flex: 1;
+            min-width: 280px;
+            max-width: 600px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            animation: fadeInLeft 1s forwards;
+        }
+
+        /* Section Headings */
+        .section#unternehmen .text-container h2 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Section Paragraphs */
+        .section#unternehmen .text-container p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Video Container */
+        .section#unternehmen .video-container {
+            flex: 1;
+            min-width: 280px;
+            max-width: 700px;
+            background-color: var(--light-background);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInRight 1s forwards;
+        }
+
+        /* Responsive Video Embed */
+        .section#unternehmen .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .section#unternehmen .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section#unternehmen .content-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section#unternehmen .text-container,
+            .section#unternehmen .video-container {
+                max-width: 100%;
+            }
+
+            .section#unternehmen .text-container p {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+
+    <!-- Section Title -->
+    <h1 data-animate="zoomIn" class="animate">Unternehmen</h1>
+
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        <!-- Left Column: Text Container -->
+        <div class="text-container animate-on-scroll animate-left">
+            <!-- Section 1: Introduction -->
+            <h2 data-animate="fadeInLeft" class="animate">Unsere Gründung</h2>
+            <p data-animate="fadeInLeft" class="animate">
+                Exelentic wurde 2018 von erfahrenen IT-Experten und Business Analysten gegründet. Wir setzen den Fokus auf nachhaltige Prozessautomatisierung und -optimierung durch Technologien wie RPA, OCR, Process Mining und KI.
+            </p>
+
+            <!-- Section 2: Quality Leadership -->
+            <h2 data-animate="fadeInLeft" class="animate">Qualitätsführerschaft</h2>
+            <p data-animate="fadeInLeft" class="animate">
+                Als Qualitätsführer in Mitteleuropa setzen wir auf innovative Ansätze zur Optimierung Ihrer Prozesse. Exelentic bietet maßgeschneiderte Lösungen für Unternehmen, die Ihre Effizienz und Skalierbarkeit verbessern möchten.
+            </p>
+
+            <!-- Section 3: Automation Advantages -->
+            <h2 data-animate="fadeInLeft" class="animate">Vorteile der Automatisierung</h2>
+            <p data-animate="fadeInLeft" class="animate">
+                Automatisierung bringt Einsparungspotenziale und verringert Fehlerquoten. Mit RPA entlasten Sie Ihre Teams von manuellen Tätigkeiten, was mehr Zeit für strategische Aufgaben schafft und langfristig Kosten spart.
+            </p>
+        </div>
+
+        <!-- Right Column: Video Embed -->
+        <div class="video-container animate-on-scroll animate-right">
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/24U7CK1tZ_4" 
+                    title="YouTube video player" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animation Script -->
+    <script>
+        // JS to trigger animations for elements with data-animate attribute
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('[data-animate]');
+
+            const observerOptions = {
+                threshold: 0.1 // Adjust this value to your needs (0.1 means the element is 10% visible)
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const animation = entry.target.getAttribute('data-animate');
+                        if (animation) {
+                            entry.target.style.animation = `${animation} 1s forwards`;
+                        }
+                        entry.target.classList.add('visible');
+                        entry.target.classList.remove('hidden');
+                    } else {
+                        entry.target.classList.remove('visible');
+                        entry.target.classList.add('hidden');
+                        entry.target.style.animation = '';
+                    }
+                });
+            }, observerOptions);
+
+            elements.forEach((el) => {
+                el.classList.add('hidden'); // Start hidden
+                observer.observe(el);
+            });
+        });
+    </script>
+</div>
+
+
+
+
+
+
+
+
