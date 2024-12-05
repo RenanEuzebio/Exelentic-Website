@@ -1,0 +1,80 @@
+<!-- sections/s4.html -->
+<section id="werte" class="values">
+    <h2 data-key="s4_heading_values">Unsere Werte</h2>
+    <div class="cards">
+        <div class="card">
+            <div class="icon"><i class="fas fa-tools"></i></div>
+            <h3 data-key="s4_card_tools_title">Unterschiedliche Tools</h3>
+            <p data-key="s4_card_tools_text">Umfassende RPA-Kompetenz mit UiPath, Automation Anywhere und SAP IRPA, maßgeschneidert für Ihre IT und Prozesse.</p>
+        </div>
+        <div class="card">
+            <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3 data-key="s4_card_academy_title">Exelentic Academy</h3>
+            <p data-key="s4_card_academy_text">Unsere Mitarbeiter durchlaufen die Exelentic Academy: Qualitätsstandards und praxisorientiertes Training von Anfang an.</p>
+        </div>
+        <div class="card">
+            <div class="icon"><i class="fas fa-handshake"></i></div>
+            <h3 data-key="s4_card_customer_orientation_title">Kundenorientierung</h3>
+            <p data-key="s4_card_customer_orientation_text">Flexibilität bei Projekten: Anpassungen und Support bis zur fertigen Lösung, genau nach Ihren Arbeitsabläufen.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Values Section Styles */
+    .values {
+        padding: 60px 20px;
+        background-color: #f9f9f9;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        color: #0a3458;
+    }
+    .values h2 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 50px;
+    }
+    .values .cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    .values .card {
+        background-color: white;
+        padding: 30px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        flex: 1 1 250px;
+        max-width: 300px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .values .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+    .values .card .icon {
+        font-size: 50px;
+        color: #007BFF;
+        margin-bottom: 20px;
+    }
+    .values .card h3 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #0a3458;
+    }
+    .values .card p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.6;
+    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .values .cards {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+</style>

@@ -1,0 +1,115 @@
+<!-- sections/s9.html -->
+<section id="contact" class="contact">
+    <h2 data-key="s9_heading_contact_us">Kontaktieren Sie uns</h2>
+    <div class="contact-form">
+        <form action="#" method="post">
+            <label for="vorname" data-key="s9_label_first_name">Vorname</label>
+            <input type="text" id="vorname" name="vorname" required>
+
+            <label for="nachname" data-key="s9_label_last_name">Nachname</label>
+            <input type="text" id="nachname" name="nachname" required>
+
+            <label for="email" data-key="s9_label_email">E-Mail</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telefon" data-key="s9_label_phone">Telefon</label>
+            <input type="tel" id="telefon" name="telefon">
+
+            <label for="grund" data-key="s9_label_reason">Grund für Kontaktaufnahme</label>
+            <select id="grund" name="grund" required>
+                <option value="" data-key="s9_option_select_reason">Wählen Sie einen Grund</option>
+                <option value="beratung" data-key="s9_option_consulting">Beratung</option>
+                <option value="support" data-key="s9_option_support">Support</option>
+                <option value="allgemein" data-key="s9_option_general">Allgemeine Anfrage</option>
+            </select>
+
+            <label for="nachricht" data-key="s9_label_message">Nachricht</label>
+            <textarea id="nachricht" name="nachricht" rows="5" data-key="s9_label_message_text"></textarea>
+
+            <button type="submit" data-key="s9_button_submit">Absenden</button>
+        </form>
+        <div class="schedule-button">
+            <button data-key="s9_button_schedule_consultation">Beratung vereinbaren</button>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Reset body background to white */
+    body {
+        background: #FFF; /* White background */
+        font-family: Arial, sans-serif;
+        color: #333;
+    }
+
+    /* Contact Section */
+    .contact {
+        background: #F9F9F9; /* Light gray background */
+        padding: 25px;
+        margin: 50px auto;
+        max-width: 500px;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
+    }
+
+    .contact h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #0a3458; /* Dark blue */
+    }
+
+    .contact label {
+        font-size: 14px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #0a3458; /* Dark blue */
+    }
+
+    .contact input[type="text"],
+    .contact input[type="email"],
+    .contact input[type="tel"],
+    .contact select,
+    .contact textarea {
+        width: 100%;
+        border: 1px solid #ccc;
+        background: #FFF;
+        margin-bottom: 15px;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 4px;
+    }
+
+    .contact input:focus,
+    .contact textarea:focus,
+    .contact select:focus {
+        outline: none;
+        border: 1px solid #0a3458; /* Dark blue */
+    }
+
+    .contact button[type="submit"],
+    .contact .schedule-button button {
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        background: #0a3458; /* Dark blue */
+        color: #FFF;
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 15px;
+        border-radius: 4px;
+        transition: background 0.3s ease;
+    }
+
+    .contact button[type="submit"]:hover,
+    .contact .schedule-button button:hover {
+        background: #073a65; /* Darker blue */
+    }
+
+    .contact textarea {
+        resize: none;
+        height: 100px;
+    }
+</style>

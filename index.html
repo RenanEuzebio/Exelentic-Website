@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exelentic</title>
+    <!-- Include Google Fonts and Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Include jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Reset default margins and paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            color: #007BFF;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: top 0.3s, background-color 0.3s ease-in-out;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar:hover {
+            background-color: white;
+        }
+
+        .navbar .logo a {
+            font-family: 'Roboto', sans-serif !important;
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 100; /* Original font weight */
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar .nav-links a {
+            color: #0a3458;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s, border-bottom-color 0.3s ease;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #1a5fa2; /* Lighter blue */
+        }
+
+        .language-switch {
+            /* Ensures the language switch button is aligned correctly */
+        }
+
+        #language-button {
+            background-color: transparent;
+            border: none;
+            color: #0a3458;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 0;
+            margin-left: 20px;
+        }
+
+        #language-button:hover {
+            color: #1a5fa2;
+        }
+
+        /* Content styles */
+        .content {
+            margin-top: 60px; /* Adjust for navbar height */
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #0a3458;
+            color: white;
+            padding: 40px 20px;
+            width: 100%;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column {
+            flex: 1 1 200px;
+            margin: 10px;
+        }
+
+        .footer-column h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-column p {
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                display: none;
+            }
+            .navbar .logo {
+                margin: 0 auto;
+            }
+            .navbar .language-switch {
+                position: absolute;
+                right: 20px;
+            }
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-column {
+                margin: 20px 0;
+            }
+        }
+
+        /* Chatbot Styles */
+        #chat-circle {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            background: #007BFF; /* Changed from purple to blue */
+            width: 80px;
+            height: 80px;  
+            border-radius: 50%;
+            color: white;
+            padding: 28px;
+            cursor: pointer;
+            box-shadow: none; /* Removed shadow */
+            z-index: 1000; /* Ensure it appears above other elements */
+        }
+
+        #chat-overlay {
+            background: rgba(255,255,255,0.1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: none;
+        }
+
+        .chat-box {
+            display: none;
+            background: #efefef;
+            position: fixed;
+            right: 30px;
+            bottom: 50px;  
+            width: 350px;
+            max-width: 85vw;
+            max-height: 80vh;
+            border-radius: 5px;  
+            box-shadow: none; /* Removed shadow */
+            z-index: 1000; /* Ensure it appears above other elements */
+        }
+        .chat-box-toggle {
+            float: right;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        .chat-box-header {
+            background: #007BFF; /* Changed from purple to blue */
+            height: 70px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px; 
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            padding-top: 17px;
+        }
+        .chat-box-body {
+            position: relative;  
+            height: 370px;  
+            border: 1px solid #ccc;  
+            overflow: hidden;
+        }
+        .chat-box-body:after {
+            content: "";
+            opacity: 0.1;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 100%;
+            position: absolute;
+            z-index: -1;   
+        }
+        #chat-input {
+            background: #f4f7f9;
+            width: 100%; 
+            position: relative;
+            height: 47px;  
+            padding: 10px 15px;
+            border: none;
+            resize: none;
+            outline: none;
+            border: 1px solid #ccc;
+            color: #888;
+            border-top: none;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            overflow: hidden;  
+        }
+        .chat-input > form {
+            margin-bottom: 0;
+        }
+        #chat-input::placeholder {
+            color: #ccc;
+        }
+        .chat-submit {  
+            position: absolute;
+            bottom: 3px;
+            right: 10px;
+            background: transparent;
+            box-shadow: none;
+            border: none;
+            border-radius: 50%;
+            color: #007BFF; /* Changed from purple to blue */
+            width: 35px;
+            height: 35px;  
+            cursor: pointer;
+        }
+        .chat-logs {
+            padding: 15px; 
+            height: 370px;
+            overflow-y: scroll;
+        }
+        .chat-logs::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            background-color: #F5F5F5;
+        }
+        .chat-logs::-webkit-scrollbar {
+            width: 5px;  
+            background-color: #F5F5F5;
+        }
+        .chat-logs::-webkit-scrollbar-thumb {
+            background-color: #007BFF; /* Changed from purple to blue */
+        }
+        @media only screen and (max-width: 500px) {
+            .chat-logs {
+                height: 40vh;
+            }
+        }
+        .chat-msg {
+            clear: both;    
+            margin-bottom: 20px;
+        }
+        /* Removed .msg-avatar related styles since images are removed */
+        .cm-msg-text {
+            background: white;
+            padding: 10px 15px;  
+            color: #666;
+            max-width: 75%;
+            float: left;
+            margin-left: 10px; 
+            border-radius: 30px;
+        }
+        .chat-msg.self .cm-msg-text {  
+            float: right;
+            margin-right: 10px;
+            background: #007BFF; /* Changed from purple to blue */
+            color: white;
+        }
+        .cm-msg-button > ul > li {
+            list-style: none;
+            float: left;
+            width: 50%;
+        }
+        .cm-msg-button {
+            clear: both;
+            margin-bottom: 70px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+    <div class="logo">
+        <a href="#"><strong>Exelentic</strong></a>
+    </div>
+    <div class="nav-links">
+        <a href="#home" data-key="navbar_home">Home</a>
+        <a href="#integration" data-key="navbar_company">Unternehmen</a>
+        <a href="#roi" data-key="navbar_roi">ROI</a>
+        <a href="#career" data-key="navbar_career">Karriere</a>
+        <a href="#contact" data-key="navbar_contact">Kontakt</a>
+    </div>
+    <div class="language-switch">
+        <button id="language-button">EN</button>
+    </div>
+</nav>
+
+<!-- Content Container -->
+<div class="content" id="content">
+    <!-- Dynamically injected content will appear here -->
+</div>
+
+<!-- Footer -->
+<footer class="footer" id="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4 data-key="footer_learn_more">Mehr erfahren</h4>
+            <ul>
+                <li><a href="#" data-key="footer_about_us">Über uns</a></li>
+                <li><a href="#" data-key="footer_values">Werte</a></li>
+                <li><a href="#" data-key="footer_career">Karriere</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4 data-key="footer_services">Leistungen</h4>
+            <ul>
+                <li><a href="#" data-key="footer_implementation">Umsetzung</a></li>
+                <li><a href="#" data-key="footer_project">Projekt</a></li>
+                <li><a href="#" data-key="footer_full_service">Full-Service</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4 data-key="footer_locations">Standorte</h4>
+            <ul>
+                <li data-key="footer_dusseldorf">Düsseldorf (D)</li>
+                <li data-key="footer_munich">München (D)</li>
+                <li data-key="footer_zug">Zug (CH)</li>
+            </ul>
+            <p><span data-key="footer_phone">Telefon</span>: +49 89 958990 281</p>
+            <p><span data-key="footer_email">E-Mail</span>: <a href="mailto:info@exelentic.com">info@exelentic.com</a></p>
+        </div>
+        <div class="footer-column">
+            <h4 data-key="footer_legal">Rechtliches</h4>
+            <ul>
+                <li><a href="#" data-key="footer_imprint">Impressum</a></li>
+                <li><a href="#" data-key="footer_privacy">Datenschutz</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Exelentic GmbH. <span data-key="footer_rights_reserved">Alle Rechte vorbehalten.</span></p>
+    </div>
+</footer>
+
+<!-- Chatbot HTML -->
+<div id="chat-circle" class="btn btn-raised">
+    <div id="chat-overlay"></div>
+    <i class="material-icons">speaker_phone</i>
+</div>
+
+<div class="chat-box">
+    <div class="chat-box-header">
+        ChatBot
+        <span class="chat-box-toggle"><i class="material-icons">close</i></span>
+    </div>
+    <div class="chat-box-body">
+        <div class="chat-box-overlay"></div>
+        <div class="chat-logs"></div>
+    </div>
+    <div class="chat-input">      
+        <form>
+            <input type="text" id="chat-input" placeholder="Send a message..." />
+            <button type="submit" class="chat-submit" id="chat-submit"><i class="material-icons">send</i></button>
+        </form>      
+    </div>
+</div>
+
+<script>
+    // Variables to store translations
+    let translations = {};
+    let currentLanguage = 'de'; // Default language
+
+    // Function to load translations from JSON files
+    async function loadTranslations() {
+        try {
+            const [enResponse, deResponse] = await Promise.all([
+                fetch('translations/en.json'),
+                fetch('translations/de.json')
+            ]);
+
+            if (!enResponse.ok || !deResponse.ok) {
+                throw new Error('Failed to load translation files.');
+            }
+
+            const [enData, deData] = await Promise.all([
+                enResponse.json(),
+                deResponse.json()
+            ]);
+
+            translations = {
+                en: enData,
+                de: deData
+            };
+        } catch (error) {
+            console.error('Error loading translations:', error);
+        }
+    }
+
+    // Function to apply translations to elements with data-key
+    function applyTranslations() {
+        const elements = document.querySelectorAll('[data-key]');
+        elements.forEach(element => {
+            const key = element.getAttribute('data-key');
+            const translation = getTranslation(key);
+            if (translation) {
+                element.innerHTML = translation;
+            }
+        });
+
+        // Update the lang attribute for SEO and accessibility
+        document.documentElement.lang = currentLanguage;
+    }
+
+    // Function to get translation based on key and current language
+    function getTranslation(key) {
+        const sections = Object.keys(translations[currentLanguage]);
+        
+        for (let section of sections) {
+            if (translations[currentLanguage][section][key]) {
+                return translations[currentLanguage][section][key];
+            }
+        }
+        
+        // Fallback to the key itself if translation is missing
+        console.warn(`Missing translation for key: ${key}`);
+        return key;
+    }
+
+    // Language switch button functionality
+    const languageButton = document.getElementById('language-button');
+
+    // Retrieve saved language preference on load
+    document.addEventListener('DOMContentLoaded', async () => {
+        await loadTranslations();
+        // Check for saved language preference
+        const savedLanguage = localStorage.getItem('preferredLanguage');
+        if (savedLanguage && ['en', 'de'].includes(savedLanguage)) {
+            currentLanguage = savedLanguage;
+            languageButton.textContent = (currentLanguage === 'de') ? 'EN' : 'DE';
+        }
+        applyTranslations();
+        loadPages();
+    });
+
+    languageButton.addEventListener('click', function() {
+        // Toggle language
+        currentLanguage = (currentLanguage === 'de') ? 'en' : 'de';
+        // Save to localStorage
+        localStorage.setItem('preferredLanguage', currentLanguage);
+        // Update the button label
+        languageButton.textContent = (currentLanguage === 'de') ? 'EN' : 'DE';
+        // Apply translations
+        applyTranslations();
+    });
+
+    // Auto-hiding Navbar Script
+    let prevScrollPos = window.pageYOffset;
+    window.onscroll = function() {
+        const navbar = document.getElementById("navbar");
+        let currentScrollPos = window.pageYOffset;
+
+        if (prevScrollPos > currentScrollPos) {
+            navbar.style.top = "0";
+        } else {
+            navbar.style.top = "-100px";
+        }
+        prevScrollPos = currentScrollPos;
+    };
+
+    // Function to dynamically load pages
+    async function loadPages() {
+        const contentDiv = document.getElementById('content');
+        let pageIndex = 1;
+
+        while (true) {
+            const pageUrl = `sections/s${pageIndex}.html`;
+
+            try {
+                const response = await fetch(pageUrl);
+
+                if (!response.ok) break;
+
+                const pageContent = await response.text();
+                const section = document.createElement('div');
+                section.innerHTML = pageContent;
+                contentDiv.appendChild(section);
+
+                // After appending, apply current language to the new content
+                applyTranslations();
+
+                pageIndex++;
+            } catch {
+                break;
+            }
+        }
+    }
+
+    // Chatbot Script
+    $(function() {
+        var INDEX = 0; 
+        $("#chat-submit").click(function(e) {
+            e.preventDefault();
+            var msg = $("#chat-input").val(); 
+            if(msg.trim() == ''){
+                return false;
+            }
+            generate_message(msg, 'self');
+            setTimeout(function() {      
+                generate_message(getTranslation('thank_you'), 'user');  
+            }, 1000);
+        });
+      
+        function generate_message(msg, type) {
+            INDEX++;
+            var str = "";
+            str += "<div id='cm-msg-" + INDEX + "' class=\"chat-msg " + type + "\">";
+            // Removed the avatar image
+            str += "    <div class=\"cm-msg-text\">";
+            str += msg;
+            str += "    </div>";
+            str += "</div>";
+            $(".chat-logs").append(str);
+            $("#cm-msg-" + INDEX).hide().fadeIn(300);
+            if(type == 'self'){
+                $("#chat-input").val(''); 
+            }    
+            $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight}, 1000);    
+        }
+      
+        $("#chat-circle").click(function() {    
+            $("#chat-circle").toggle('scale');
+            $(".chat-box").toggle('scale');
+        });
+      
+        $(".chat-box-toggle").click(function() {
+            $("#chat-circle").toggle('scale');
+            $(".chat-box").toggle('scale');
+        });
+    });
+</script>
+
+</body>
+</html>

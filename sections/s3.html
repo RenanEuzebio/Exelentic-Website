@@ -1,0 +1,114 @@
+<!-- sections/s3.html -->
+<section id="unternehmen" class="company">
+    <div class="content">
+        <h2 data-key="s3_heading_company">Unternehmen</h2>
+
+        <div class="item">
+            <div class="icon"><i class="fas fa-history"></i></div>
+            <div>
+                <h3 data-key="s3_item_foundation_title">Unsere Gründung</h3>
+                <p data-key="s3_item_foundation_text">Exelentic wurde 2018 von erfahrenen IT-Experten und Business Analysten gegründet. Wir setzen den Fokus auf nachhaltige Prozessautomatisierung und -optimierung durch Technologien wie RPA, OCR, Process Mining und KI.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="icon"><i class="fas fa-award"></i></div>
+            <div>
+                <h3 data-key="s3_item_quality_title">Qualitätsführerschaft</h3>
+                <p data-key="s3_item_quality_text">Als Qualitätsführer in Mitteleuropa setzen wir auf innovative Ansätze zur Optimierung Ihrer Prozesse. Exelentic bietet maßgeschneiderte Lösungen für Unternehmen, die ihre Effizienz und Skalierbarkeit verbessern möchten.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="icon"><i class="fas fa-robot"></i></div>
+            <div>
+                <h3 data-key="s3_item_automation_title">Vorteile der Automatisierung</h3>
+                <p data-key="s3_item_automation_text">Automatisierung bringt Einsparungspotenziale und verringert Fehlerquoten. Mit RPA entlasten Sie Ihre Teams von manuellen Tätigkeiten, was mehr Zeit für strategische Aufgaben schafft und langfristig Kosten spart.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/24U7CK1tZ_4" allowfullscreen></iframe>
+    </div>
+</section>
+
+<style>
+    /* Company Section Styles */
+    .company {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 40px 20px;
+        background-color: white; /* Changed from #eef3f9 to white */
+        color: #0a3458;
+        font-family: 'Roboto', sans-serif;
+        align-items: center; /* Added to center items vertically */
+    }
+
+    .company .content {
+        flex: 1;
+        min-width: 300px;
+        padding-right: 20px;
+    }
+
+    .company .content h2 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .company .content .item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 25px;
+    }
+
+    .company .content .item .icon {
+        font-size: 30px;
+        color: #007BFF;
+        margin-right: 15px;
+        margin-top: 5px;
+    }
+
+    .company .content .item h3 {
+        font-size: 22px;
+        color: #0a3458;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .company .content .item p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #333;
+    }
+
+    .company .video-container {
+        flex: 1;
+        min-width: 300px;
+        position: relative;
+        width: 100%;
+    }
+
+    .company .video-container iframe {
+        width: 100%;
+        height: 450px;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .company {
+            flex-direction: column;
+        }
+        .company .content {
+            padding-right: 0;
+        }
+        .company .video-container iframe {
+            height: 250px;
+            margin-top: 30px;
+        }
+    }
+</style>

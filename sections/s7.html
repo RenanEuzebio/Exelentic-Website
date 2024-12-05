@@ -1,0 +1,131 @@
+<!-- sections/s7.html -->
+<section class="section" id="arbeitsweise">
+    <h1 data-key="s7_heading_working_method">So arbeiten wir für Sie oder mit Ihnen gemeinsam</h1>
+
+    <div class="cards-container">
+        <!-- Step 1: Projekt -->
+        <div class="card">
+            <h3>1</h3>
+            <h4 data-key="s7_step_project_title">Projekt</h4>
+            <p data-key="s7_step_project_text">Beauftragen Sie uns, Ihre RPA-Landschaft in klassischen oder agilen IT-Projekten zu entwickeln und nahtlos an Ihre Fachabteilung zu übergeben.</p>
+        </div>
+
+        <!-- Step 2: Tandem & Gemeinsame Entwicklung -->
+        <div class="card">
+            <h3>2</h3>
+            <h4 data-key="s7_step_tandem_development_title">Tandem & Gemeinsame Entwicklung</h4>
+            <p data-key="s7_step_tandem_development_text">Haben Sie RPA-Entwickler im Haus? Wir arbeiten mit Ihnen zusammen, entwickeln neue Bots und erweitern Ihr RPA-Wissen für nachhaltigen Erfolg.</p>
+        </div>
+
+        <!-- Step 3: Qualitätsmanagement -->
+        <div class="card">
+            <h3>3</h3>
+            <h4 data-key="s7_step_quality_management_title">Qualitätsmanagement</h4>
+            <p data-key="s7_step_quality_management_text">Unzufrieden mit der Liefergeschwindigkeit Ihrer Roboter? Wir sind Ihr direkter Ansprechpartner für Qualitätsmanagement und sorgen für robuste, langlebige RPA-Lösungen.</p>
+        </div>
+
+        <!-- Step 4: Full-Service -->
+        <div class="card">
+            <h3>4</h3>
+            <h4 data-key="s7_step_full_service_title">Full-Service</h4>
+            <p data-key="s7_step_full_service_text">Möchten Sie RPA nutzen, ohne eigenes Personal? Unser Team gewährleistet eine stabile, gewartete und flexible RPA-Lösung für Ihr Unternehmen.</p>
+        </div>
+
+        <!-- Step 5: "Feuerwehreinsatz" -->
+        <div class="card">
+            <h3>5</h3>
+            <h4 data-key="s7_step_firefighting_title">"Feuerwehreinsatz"</h4>
+            <p data-key="s7_step_firefighting_text">Wir retten RPA-Projekte, die anfangs scheiterten. Mit unserer Expertise lösen wir Abstimmungsprobleme und bauen Projekte nachhaltig aus.</p>
+        </div>
+
+        <!-- Step 6: Beratung & Unterstützung -->
+        <div class="card">
+            <h3>6</h3>
+            <h4 data-key="s7_step_consulting_support_title">Beratung & Unterstützung</h4>
+            <p data-key="s7_step_consulting_support_text">Unser erfahrenes Team bietet Beratung und Unterstützung, um Ihre Automatisierungsprojekte erfolgreich umzusetzen und weiterzuentwickeln.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    #arbeitsweise {
+        padding: 50px;
+        background-color: #ffffff;
+        color: #0a3458;
+    }
+
+    #arbeitsweise h1 {
+        color: #0a3458;
+        font-size: 38px;
+        margin-bottom: 50px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    #arbeitsweise .cards-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    #arbeitsweise .card {
+        background-color: #f3f8fd;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow-wrap: break-word;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #arbeitsweise .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    #arbeitsweise .card h3 {
+        font-size: 32px;
+        color: #2173D1;
+        margin-bottom: 15px;
+    }
+
+    #arbeitsweise .card h4 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    #arbeitsweise .card p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    #arbeitsweise .card:nth-child(1) { background-color: #f3f8fd; }
+    #arbeitsweise .card:nth-child(2) { background-color: #e0f2ff; }
+    #arbeitsweise .card:nth-child(3) { background-color: #d1ecff; }
+    #arbeitsweise .card:nth-child(4) { background-color: #cce4ff; }
+    #arbeitsweise .card:nth-child(5) { background-color: #c1dcff; }
+    #arbeitsweise .card:nth-child(6) { background-color: #b3d4ff; }
+
+    @media (max-width: 1024px) {
+        #arbeitsweise .cards-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        #arbeitsweise .cards-container {
+            grid-template-columns: 1fr;
+        }
+
+        #arbeitsweise .card {
+            max-width: 90%;
+            margin: 0 auto;
+        }
+    }
+</style>

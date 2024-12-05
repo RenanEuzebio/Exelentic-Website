@@ -1,0 +1,134 @@
+{
+    "navbar": {
+        "navbar_home": "Home",
+        "navbar_company": "Company",
+        "navbar_roi": "ROI",
+        "navbar_career": "Career",
+        "navbar_contact": "Contact"
+    },
+    "footer": {
+        "footer_learn_more": "Learn More",
+        "footer_about_us": "About Us",
+        "footer_values": "Values",
+        "footer_career": "Career",
+        "footer_services": "Services",
+        "footer_implementation": "Implementation",
+        "footer_project": "Project",
+        "footer_full_service": "Full-Service",
+        "footer_locations": "Locations",
+        "footer_dusseldorf": "Düsseldorf (D)",
+        "footer_munich": "Munich (D)",
+        "footer_zug": "Zug (CH)",
+        "footer_phone": "Phone",
+        "footer_email": "Email",
+        "footer_legal": "Legal",
+        "footer_imprint": "Imprint",
+        "footer_privacy": "Privacy Policy",
+        "footer_rights_reserved": "All rights reserved."
+    },
+    "chatbot": {
+        "thank_you": "Thank you for your message!"
+    },
+    "s1": {
+        "s1_heading": "If you hate it,<br> automate it!",
+        "s1_paragraph": "At Exelentic, we enhance your company’s efficiency<br>through automation and AI-powered technology.",
+        "s1_button": "Learn More"
+    },
+    "s2": {
+        "s2_heading_partners": "Our <b>Partners</b>",
+        "s2_heading_customers": "And our <b>Customers</b>"
+    },
+    "s3": {
+        "s3_heading_company": "Company",
+        "s3_item_foundation_title": "Our Foundation",
+        "s3_item_foundation_text": "Exelentic was founded in 2018 by experienced IT experts and business analysts. We focus on sustainable process automation and optimization through technologies like RPA, OCR, Process Mining, and AI.",
+        "s3_item_quality_title": "Quality Leadership",
+        "s3_item_quality_text": "As a quality leader in Central Europe, we employ innovative approaches to optimize your processes. Exelentic offers tailored solutions for companies looking to improve their efficiency and scalability.",
+        "s3_item_automation_title": "Advantages of Automation",
+        "s3_item_automation_text": "Automation brings cost-saving potentials and reduces error rates. With RPA, you relieve your teams from manual tasks, creating more time for strategic activities and saving costs in the long run."
+    },
+    "s4": {
+        "s4_heading_values": "Our Values",
+        "s4_card_tools_title": "Diverse Tools",
+        "s4_card_tools_text": "Comprehensive RPA expertise with UiPath, Automation Anywhere, and SAP IRPA, tailored for your IT and processes.",
+        "s4_card_academy_title": "Exelentic Academy",
+        "s4_card_academy_text": "Our employees undergo the Exelentic Academy: quality standards and practical training from the start.",
+        "s4_card_customer_orientation_title": "Customer Orientation",
+        "s4_card_customer_orientation_text": "Flexibility in projects: adjustments and support until the final solution, exactly according to your workflows."
+    },
+    "s5": {
+        "s5_heading_integration": "The Power of Automation and AI, United",
+        "s5_paragraph_integration": "At Exelentic, we combine UiPath's automation capabilities with DruidAI's conversational intelligence to create seamless solutions that optimize workflows and enhance human interactions through advanced AI.",
+        "s5_logo_uipath_alt": "UiPath Logo",
+        "s5_logo_druidai_alt": "DruidAI Logo",
+        "s5_benefit_efficiency_title": "Increased Efficiency",
+        "s5_benefit_efficiency_text": "Save time and resources by automating repetitive tasks with UiPath.",
+        "s5_benefit_natural_interactions_title": "Natural Interactions",
+        "s5_benefit_natural_interactions_text": "Utilize DruidAI for smooth, conversation-based user experiences.",
+        "s5_benefit_data_insights_title": "Data-Driven Insights",
+        "s5_benefit_data_insights_text": "Gain valuable analyses on user interactions and process efficiency.",
+        "s5_benefit_scalable_solutions_title": "Scalable Solutions",
+        "s5_benefit_scalable_solutions_text": "Scale solutions that meet your business requirements, supported by Exelentic's expertise."
+    },
+    "s6": {
+        "s6_heading_collaboration_benefits": "The Benefits of Collaborating with Us",
+        "s6_benefit_improved_efficiency_title": "Improved Efficiency",
+        "s6_benefit_improved_efficiency_text": "Automation reduces the time spent on tasks and allows your team to focus on more value-added activities.",
+        "s6_benefit_cost_saving_title": "Cost Savings",
+        "s6_benefit_cost_saving_text": "Automation helps lower operational costs by minimizing manual processes.",
+        "s6_benefit_higher_accuracy_title": "Higher Accuracy",
+        "s6_benefit_higher_accuracy_text": "Automated processes minimize human errors and lead to more consistent results.",
+        "s6_benefit_scalability_title": "Scalability",
+        "s6_benefit_scalability_text": "Automation enables your business to grow efficiently while maintaining the same quality of output.",
+        "s6_benefit_customization_title": "Customization",
+        "s6_benefit_customization_text": "Our solutions are flexible and tailored to the specific needs of your business.",
+        "s6_benefit_increased_security_title": "Increased Security",
+        "s6_benefit_increased_security_text": "Using state-of-the-art technologies, we provide maximum security for your data and processes."
+    },
+    "s7": {
+        "s7_heading_working_method": "How We Work for You or Collaboratively",
+        "s7_step_project_title": "Project",
+        "s7_step_project_text": "Commission us to develop your RPA landscape in traditional or agile IT projects and seamlessly hand it over to your specialized department.",
+        "s7_step_tandem_development_title": "Tandem & Collaborative Development",
+        "s7_step_tandem_development_text": "Do you have RPA developers in-house? We work alongside you, develop new bots, and expand your RPA knowledge for sustainable success.",
+        "s7_step_quality_management_title": "Quality Management",
+        "s7_step_quality_management_text": "Unhappy with the delivery speed of your robots? We are your direct contact for quality management, ensuring robust, long-lasting RPA solutions.",
+        "s7_step_full_service_title": "Full-Service",
+        "s7_step_full_service_text": "Want to utilize RPA without in-house personnel? Our team ensures a stable, maintained, and flexible RPA solution for your company.",
+        "s7_step_firefighting_title": "\"Firefighting\"",
+        "s7_step_firefighting_text": "We rescue RPA projects that initially failed. With our expertise, we resolve alignment issues and sustainably build out projects.",
+        "s7_step_consulting_support_title": "Consulting & Support",
+        "s7_step_consulting_support_text": "Our experienced team offers consulting and support to successfully implement and further develop your automation projects."
+    },
+    "s8": {
+        "s8_heading_career_open_positions": "Career - Open Positions",
+        "s8_job_automation_expert_title": "Automation Expert (m/f/d)",
+        "s8_job_automation_expert_text": "RPA Implementation - from process documentation, through implementation to final acceptance.",
+        "s8_job_automation_expert_link": "Learn More",
+        "s8_job_senior_automation_expert_title": "Senior Automation Expert (m/f/d)",
+        "s8_job_senior_automation_expert_text": "Project management and team leadership - act as a liaison to the client.",
+        "s8_job_senior_automation_expert_link": "Learn More",
+        "s8_job_process_mining_expert_title": "Process Mining Expert (m/f/d)",
+        "s8_job_process_mining_expert_text": "Identify automation potentials and prepare processes for RPA.",
+        "s8_job_process_mining_expert_link": "Learn More",
+        "s8_job_last_title": "Not the right position?",
+        "s8_job_last_text": "We are waiting for your proactive application! Send your LinkedIn or Xing profile to <a href=\"mailto:HR@exelentic.com\" data-key=\"s8_job_last_email_link\">HR@exelentic.com</a>.",
+        "s8_job_last_email_link": "HR@exelentic.com"
+    },
+    "s9": {
+        "s9_heading_contact_us": "Contact Us",
+        "s9_label_first_name": "First Name",
+        "s9_label_last_name": "Last Name",
+        "s9_label_email": "Email",
+        "s9_label_phone": "Phone",
+        "s9_label_reason": "Reason for Contact",
+        "s9_option_select_reason": "Select a Reason",
+        "s9_option_consulting": "Consulting",
+        "s9_option_support": "Support",
+        "s9_option_general": "General Inquiry",
+        "s9_label_message": "Message",
+        "s9_label_message_text": "Message",
+        "s9_button_submit": "Submit",
+        "s9_button_schedule_consultation": "Schedule Consultation"
+    }
+}
